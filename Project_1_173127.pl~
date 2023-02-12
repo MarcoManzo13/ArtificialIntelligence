@@ -1,0 +1,14 @@
+move(1, From_rod, To_rod, _) :-
+write("Move disk 1 from rod "), write(From_rod),
+write(" to rod "), write(To_rod), nl.
+
+move(N, From_rod, To_rod, Aux_rod) :-
+N > 1,
+N1 is N - 1,
+move(N1, From_rod, Aux_rod, To_rod),
+write("Move disk "), write(N),
+write(" from rod "), write(From_rod),
+write(" to rod "), write(To_rod), nl,
+move(N1, Aux_rod, To_rod, From_rod).
+
+hanoi(N) :- move(N, 'A', 'C', 'B').
